@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/btnRecord"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_margin="11dp"
+        android:background="@drawable/shape_record_button_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_record_button_cancel"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageVoice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="2dp"
+        android:scaleType="center"
+        android:src="@drawable/ic_record_voice"
+        app:layout_constraintBottom_toTopOf="@id/textTips"
+        app:layout_constraintEnd_toStartOf="@id/textSecond"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/btnRecord"
+        app:layout_constraintTop_toTopOf="@id/btnRecord" />
+
+    <TextView
+        android:id="@+id/textSecond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/black_65"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/imageVoice"
+        app:layout_constraintEnd_toEndOf="@id/btnRecord"
+        app:layout_constraintStart_toEndOf="@id/imageVoice"
+        app:layout_constraintTop_toTopOf="@id/imageVoice"
+        tools:text="47″" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupVoice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="imageVoice,textSecond" />
+
+    <ImageView
+        android:id="@+id/imageMicrophone"
+        android:layout_width="wrap_content"
+        android:layout_height="21dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="7dp"
+        android:scaleType="center"
+        android:src="@mipmap/ic_record_button_microphone"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/textTips"
+        app:layout_constraintEnd_toEndOf="@id/btnRecord"
+        app:layout_constraintStart_toStartOf="@id/btnRecord"
+        app:layout_constraintTop_toTopOf="@id/btnRecord" />
+
+    <TextView
+        android:id="@+id/textTips"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="@string/touch_talk"
+        android:textColor="@color/black_65"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/btnRecord"
+        app:layout_constraintEnd_toEndOf="@id/btnRecord"
+        app:layout_constraintStart_toStartOf="@id/btnRecord" />
+</androidx.constraintlayout.widget.ConstraintLayout>

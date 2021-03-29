@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">lib_recorder</string>
+
+    <string name="touch_talk">按住说话</string>
+    <string name="loosen_cancel">松开取消</string>
+    <string name="long_touch_rerecord">长按重录</string>
+    <string name="slide_up_cancel">划出取消</string>
+    <string name="click_to_play">点击播放</string>
+    <string name="confirm_delete_record">是否确认删除当前语音评语？</string>
+    <string name="audio_comment_length_tips">"语音评语不能少于5秒"</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 进度条颜色 -->
+    <attr name="progressColor" format="color" />
+    <!-- 进度条背景颜色 -->
+    <attr name="progressBackgroundColor" format="color" />
+    <!-- 进度条进度 -->
+    <attr name="progress" format="integer" />
+    <!-- 进度条最大值 -->
+    <attr name="max" format="integer" />
+
+    <!-- 线性进度条 -->
+    <declare-styleable name="LinearProgressBar">
+        <attr name="progressBackgroundColor" />
+        <attr name="progressColor" />
+        <attr name="progress" />
+        <attr name="max" />
+        <attr name="isGradient" format="boolean" />
+    </declare-styleable>
+</resources>

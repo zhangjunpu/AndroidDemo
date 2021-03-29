@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!-- 文字的颜色 -->
+    <color name="text_primary">#222222</color>
+    <color name="text_sub_primary">#333333</color>
+    <color name="text_secondary">#666666</color>
+    <color name="text_sub_second">#888888</color>
+    <color name="text_tertiary">#999999</color>
+    <color name="text_fourth">#B8B8B8</color>
+    <color name="text_fifth">#cccccc</color>
+    <color name="text_sixth">#eeeeee</color>
+
+    <color name="selected_blue">#468DFF</color>
+    <color name="selected_yellow">#ffb461</color>
+    <color name="selected_orange">#ff9a3d</color>
+    <color name="selected_orange_deep">#ff7a33</color>
+    <color name="selected_green">#16ba74</color>
+    <color name="selected_green_grass">#76CA14</color>
+    <color name="selected_gray_dark">#676767</color>
+    <color name="selected_gray_light">#d0d0d0</color>
+    <color name="selected_red">#FF354E</color>
+</resources>

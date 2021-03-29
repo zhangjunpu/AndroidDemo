@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme_Dialog_Transparent" parent="Theme_Dialog_Base">
+        <!-- Dialog以外的区域透明度 -->
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
+</resources>
