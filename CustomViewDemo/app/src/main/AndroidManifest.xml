@@ -16,12 +16,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".ui.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
         <activity
             android:name=".ui.CustomViewActivity"
@@ -35,6 +33,20 @@
         <activity
             android:name=".ui.HtmlActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".ui.CanvasDemoActivity" />
+        <activity android:name=".ui.AnimatorActivity" />
+        <activity android:name=".ui.DashboardActivity" />
+        <activity android:name=".ui.TextDemoActivity" />
+        <activity android:name=".ui.DailyActivity" />
+        <activity android:name=".ui.AvatarActivity" />
+        <activity android:name=".ui.MistakeActivity" />
+        <activity android:name=".ui.SaveInstanceStateActivity" />
+        <activity android:name=".ui.CameraActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

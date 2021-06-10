@@ -46,7 +46,7 @@ class CustomViewActivity : AppCompatActivity() {
                 .setDuration(3000L)
                 .start()
         }
-        btnCustomDialog?.setOnClickListener { launch(CustomDialogActivity::class.java) }
+        btnCustomDialog?.setOnClickListener { launch<CustomDialogActivity>() }
         btnProgress?.setOnClickListener {
             val progress = curProgress.toFloat() / 100
             println("progress = $progress")

@@ -65,7 +65,7 @@ class FloatingActionMenu : FrameLayout {
             btn2?.isClickable = true
             btn3?.isClickable = true
             state = true
-        }, 200)
+        }, duration)
     }
 
     /**
@@ -82,7 +82,7 @@ class FloatingActionMenu : FrameLayout {
             state = false
             btn2.visibility = View.INVISIBLE
             btn3.visibility = View.INVISIBLE
-        }, 200)
+        }, duration)
     }
 
     fun setOnActionClickListener(listener: OnActionClickListener) {

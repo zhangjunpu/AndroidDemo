@@ -14,16 +14,31 @@ class MainActivity : PermissionsActivity() {
         setContentView(R.layout.activity_main)
 
         btnCustomView?.setOnClickListener {
-            launch(CustomViewActivity::class.java)
+            launch<CustomViewActivity>()
         }
         btnCustomDialog?.setOnClickListener {
-            launch(CustomDialogActivity::class.java)
+            launch<CustomDialogActivity>()
         }
         btnCorrectMark?.setOnClickListener {
-            launch(CorrectMarkActivity::class.java)
+            launch<CorrectMarkActivity>()
         }
         btnHtml?.setOnClickListener {
-            launch(HtmlActivity::class.java)
+            launch<HtmlActivity>()
+        }
+        btnCanvasDemo?.setOnClickListener {
+            launch<CanvasDemoActivity>()
+        }
+        btnAnimatorDemo.setOnClickListener {
+            launch<AnimatorActivity>()
+        }
+        btnDashboard.setOnClickListener {
+            launch<DashboardActivity>()
+        }
+        btnTextDemo.setOnClickListener {
+            launch<TextDemoActivity>()
+        }
+        btnDaily.setOnClickListener {
+            launch<DailyActivity>()
         }
     }
 

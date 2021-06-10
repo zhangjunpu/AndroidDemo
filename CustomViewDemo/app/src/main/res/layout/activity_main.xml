@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -21,34 +22,62 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CustomView"
-        android:textAllCaps="false"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btnCustomDialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CustomDialog"
-        android:textAllCaps="false"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnCustomView" />
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btnCorrectMark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CorrectMark"
-        android:textAllCaps="false"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnCustomDialog" />
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btnHtml"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Html"
-        android:textAllCaps="false"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnCorrectMark" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnCanvasDemo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CanvasDemo"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnAnimatorDemo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AnimatorDemo"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnDashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dashboard"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnTextDemo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextDemo"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnDaily"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Daily"
+        android:textAllCaps="false" />
+
+</LinearLayout>

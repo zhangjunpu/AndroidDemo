@@ -27,4 +27,11 @@
         <attr name="max" />
         <attr name="isGradient" format="boolean" />
     </declare-styleable>
+
+    <!-- 头像 -->
+    <declare-styleable name="AvatarView">
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="strokeColor" format="color" />
+        <attr name="src" format="reference" />
+    </declare-styleable>
 </resources>
