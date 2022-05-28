@@ -1,1 +1,17 @@
-include ':app', ':lib_contentprovider'
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "ContentProviderDemo"
+include ':app_provider'
+include ':app_resolver'
