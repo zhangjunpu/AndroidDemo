@@ -50,9 +50,7 @@ class MyProvider : ContentProvider() {
         sortOrder: String?
     ): Cursor? {
         println("uri = $uri")
-        val code = uriMatcher?.match(uri)
-        println("flag = $code")
-        return when (code) {
+        return when (uriMatcher?.match(uri)) {
             USER -> db?.queryAll()
             USER_ID -> db?.queryById(uri.lastPathSegment)
             USER_NAME -> db?.queryByName(uri.lastPathSegment)
@@ -63,8 +61,7 @@ class MyProvider : ContentProvider() {
     }
 
     override fun insert(uri: Uri, values: ContentValues?): Uri? {
-        val code = uriMatcher?.match(uri)
-        if (code == USER) {
+        if (uriMatcher?.match(uri) == USER) {
             val id = db?.insert(values) ?: -1
             if (id > 0) {
                 context?.contentResolver?.notifyChange(uri, null)

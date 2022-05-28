@@ -35,7 +35,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: '../app_provider/libs')
+    implementation fileTree(dir: '../provider/libs')
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.7.0-alpha01'
