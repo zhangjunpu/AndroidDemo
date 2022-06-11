@@ -4,7 +4,8 @@ import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.junpu.aidl.service.demo.IMyAidlInterface
+import com.junpu.aidl.service.IMyAidlInterface
+import com.junpu.log.L
 
 /**
  * AIDL服务
@@ -15,35 +16,17 @@ class AidlService : Service() {
 
     private val intent by lazy { Intent(MsgReceiver.ACTION_MSG_RECEIVER) }
 
-    private val binder = object : IMyAidlInterface.Stub() {
-        override fun add(x: Int, y: Int): Int {
-            updateInfo("服务端收到请求 加法：$x + $y")
-            return x + y
-        }
-
-        override fun subtract(x: Int, y: Int): Int {
-            updateInfo("服务端收到请求 减法：$x - $y")
-            return x - y
-        }
-
-        override fun multiply(x: Int, y: Int): Int {
-            updateInfo("服务端收到请求 乘法：$x * $y")
-            return x * y
-        }
-
-        override fun divide(x: Int, y: Int): Int {
-            updateInfo("服务端收到请求 除法：$x / $y")
-            return x / y
-        }
-    }
+    private val binder = MyAidlInterfaceImpl()
 
     override fun onBind(intent: Intent?): IBinder {
         updateInfo("AidlService.onBind")
+        L.vv()
         return binder
     }
 
     override fun onCreate() {
         super.onCreate()
+        L.vv()
         updateInfo("AidlService.onCreate")
     }
 
@@ -67,7 +50,28 @@ class AidlService : Service() {
      */
     private fun updateInfo(text: String) {
         intent.putExtra(MsgReceiver.KEY_MSG, text)
-        sendBroadcast(intent)
-//        LocalBroadcastManager.getInstance(this).sendBroadcast(intent)
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent)
+    }
+
+    inner class MyAidlInterfaceImpl : IMyAidlInterface.Stub() {
+        override fun add(x: Int, y: Int): Int {
+            updateInfo("服务端收到请求 加法：$x + $y")
+            return x + y
+        }
+
+        override fun sub(x: Int, y: Int): Int {
+            updateInfo("服务端收到请求 减法：$x - $y")
+            return x - y
+        }
+
+        override fun mul(x: Int, y: Int): Int {
+            updateInfo("服务端收到请求 乘法：$x * $y")
+            return x * y
+        }
+
+        override fun div(x: Int, y: Int): Int {
+            updateInfo("服务端收到请求 除法：$x / $y")
+            return x / y
+        }
     }
 }

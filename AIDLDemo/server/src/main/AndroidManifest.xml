@@ -21,10 +21,9 @@
 
         <service
             android:name=".AidlService"
-            android:exported="true"
-            android:process=":remote">
+            android:exported="true">
             <intent-filter>
-                <action android:name="com.junpu.aidl.service.demo.IMyAidlInterface" />
+                <action android:name="com.junpu.aidl.service.IMyAidlInterface" />
             </intent-filter>
         </service>
     </application>

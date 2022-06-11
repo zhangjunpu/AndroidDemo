@@ -10,7 +10,7 @@ import android.os.RemoteException
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.junpu.aidl.client.demo.databinding.ActivityMainBinding
-import com.junpu.aidl.service.demo.IMyAidlInterface
+import com.junpu.aidl.service.IMyAidlInterface
 import com.junpu.utils.appendLine
 import com.junpu.viewbinding.binding
 
@@ -37,8 +37,8 @@ class MainActivity : AppCompatActivity() {
         binding.run {
             textInfo.text = null
             btnBind.setOnClickListener {
-                binding.textInfo.appendLine("开始绑定远程服务：com.junpu.aidl.service.demo.IMyAidlInterface")
-                val intent = Intent("com.junpu.aidl.service.demo.IMyAidlInterface").apply {
+                binding.textInfo.appendLine("开始绑定远程服务：com.junpu.aidl.service.IMyAidlInterface")
+                val intent = Intent("com.junpu.aidl.service.IMyAidlInterface").apply {
                     setPackage("com.junpu.aidl.service.demo")
                 }
                 bindService(intent, connection, Context.BIND_AUTO_CREATE)
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                 // 请求减法
                 try {
                     binding.textInfo.appendLine("请求远程服务方法：subtract")
-                    val result = aidlInterface?.subtract(x, y)
+                    val result = aidlInterface?.sub(x, y)
                     binding.textInfo.appendLine("远程方法返回结果：$x - $y = $result")
                 } catch (e: RemoteException) {
                     Log.e("system.err", Log.getStackTraceString(e))
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                 // 请求乘法
                 try {
                     binding.textInfo.appendLine("请求远程服务方法：multiply")
-                    val result = aidlInterface?.multiply(x, y)
+                    val result = aidlInterface?.mul(x, y)
                     binding.textInfo.appendLine("远程方法返回结果：$x * $y = $result")
                 } catch (e: RemoteException) {
                     Log.e("system.err", Log.getStackTraceString(e))
@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
                 // 请求除法
                 try {
                     binding.textInfo.appendLine("请求远程服务方法：divide")
-                    val result = aidlInterface?.divide(x, y)
+                    val result = aidlInterface?.div(x, y)
                     binding.textInfo.appendLine("远程方法返回结果：$x / $y = $result")
                 } catch (e: RemoteException) {
                     Log.e("system.err", Log.getStackTraceString(e))
