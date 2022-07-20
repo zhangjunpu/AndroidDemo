@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.junpu.customview">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -13,26 +14,20 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/Theme.AndroidDemo"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.MainActivity">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.CustomViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.CustomDialogActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.CorrectMarkActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.HtmlActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name=".ui.CustomViewActivity" />
+        <activity android:name=".ui.CustomDialogActivity" />
+        <activity android:name=".ui.CorrectMarkActivity" />
+        <activity android:name=".ui.HtmlActivity" />
         <activity android:name=".ui.CanvasDemoActivity" />
         <activity android:name=".ui.AnimatorActivity" />
         <activity android:name=".ui.DashboardActivity" />
@@ -41,12 +36,8 @@
         <activity android:name=".ui.AvatarActivity" />
         <activity android:name=".ui.MistakeActivity" />
         <activity android:name=".ui.SaveInstanceStateActivity" />
-        <activity android:name=".ui.CameraActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".ui.CameraActivity" />
+        <activity android:name=".ui.AvatarAnimActivity" />
     </application>
 
 </manifest>
