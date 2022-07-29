@@ -16,7 +16,7 @@ class AvatarImageView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
 ) : androidx.appcompat.widget.AppCompatImageView(context, attrs) {
 
-    var strokeWidth = 2.dip.toFloat() // 边框宽度
+    var strokeWidth = 1.dip.toFloat() // 边框宽度
     var strokeColor = Color.WHITE // 边框颜色
 
     private var cx = 0f
@@ -33,7 +33,7 @@ class AvatarImageView @JvmOverloads constructor(
         super.onSizeChanged(w, h, oldw, oldh)
         cx = (width shr 1).toFloat()
         cy = (height shr 1).toFloat()
-        radius = cx - strokeWidth / 2 + 1
+        radius = cx - strokeWidth / 2f
     }
 
     override fun onDraw(canvas: Canvas) {

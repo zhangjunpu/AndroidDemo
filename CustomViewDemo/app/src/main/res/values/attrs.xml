@@ -34,4 +34,11 @@
         <attr name="strokeColor" format="color" />
         <attr name="src" format="reference" />
     </declare-styleable>
+
+    <!-- 轮播头像 -->
+    <declare-styleable name="ImageAnimView">
+        <attr name="avatarSize" format="dimension" />
+        <attr name="avatarOffset" format="dimension" />
+        <attr name="showCount" format="integer" />
+    </declare-styleable>
 </resources>
