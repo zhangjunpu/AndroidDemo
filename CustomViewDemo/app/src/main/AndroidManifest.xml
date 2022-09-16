@@ -38,6 +38,7 @@
         <activity android:name=".ui.SaveInstanceStateActivity" />
         <activity android:name=".ui.CameraActivity" />
         <activity android:name=".ui.AvatarAnimActivity" />
+        <activity android:name=".ui.DanmuAnimActivity" />
     </application>
 
 </manifest>
