@@ -11,41 +11,11 @@
         android:layout_height="wrap_content"
         app:avatarOffset="30dp"
         app:avatarSize="42dp"
+        android:background="@color/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.junpu.customview.view.AvatarImageView
-            android:id="@+id/img1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop" />
-
-        <com.junpu.customview.view.AvatarImageView
-            android:id="@+id/img2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop" />
-
-        <com.junpu.customview.view.AvatarImageView
-            android:id="@+id/img3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop" />
-
-        <com.junpu.customview.view.AvatarImageView
-            android:id="@+id/img4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop" />
-
-        <com.junpu.customview.view.AvatarImageView
-            android:id="@+id/img5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop" />
-    </com.junpu.customview.view.ImageAnimView>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnNextFrame"

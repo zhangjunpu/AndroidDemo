@@ -29,7 +29,7 @@ class MainActivity : PermissionsActivity() {
             btnAvatar.setOnClickListener { launch<CameraActivity>() }
             btnAvatarAnim.setOnClickListener { launch<AvatarAnimActivity>() }
             btnDanmuAnim.setOnClickListener { launch<DanmuAnimActivity>() }
-            btnDanmuAnim.performClick()
+            btnAvatarAnim.performClick()
         }
     }
 

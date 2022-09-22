@@ -2,14 +2,13 @@ package com.junpu.customview.view
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.core.view.ViewCompat
 import androidx.core.view.forEachIndexed
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.junpu.customview.R
-import com.junpu.log.L
 import com.junpu.utils.dip
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
@@ -33,10 +32,9 @@ class ImageAnimView @JvmOverloads constructor(
     var avatarOffset = DEFAULT_AVATAR_OFFSET // 头像偏移量
     var showCount = DEFAULT_SHOW_COUNT // 最大显示头像个数
 
-    private var firstIndex = 0 // 当前首 child 下标
-    private val lastChildLeft by lazy { (childCount - 1) * avatarOffset.toFloat() } // 最后的 View 的位置
+    private var firstIndex = 2 // 当前首 child 下标
+    private val lastChildLeft by lazy { childCount * avatarOffset.toFloat() } // 最后的 View 的位置
     private var disposable: Disposable? = null
-    private var avatarCount = 5 // 头像总数
 
     init {
         context.obtainStyledAttributes(attrs, R.styleable.ImageAnimView).apply {
@@ -50,38 +48,55 @@ class ImageAnimView @JvmOverloads constructor(
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val childMeasureSpec = MeasureSpec.makeMeasureSpec(avatarSize, MeasureSpec.EXACTLY)
         measureChildren(childMeasureSpec, childMeasureSpec)
-        setMeasuredDimension(avatarSize + avatarOffset * (showCount - 1), avatarSize)
+        setMeasuredDimension(avatarSize + avatarOffset * (showCount + 1), avatarSize)
     }
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
-        forEachIndexed { i, view ->
-            val left = i * avatarOffset
+        forChildFromIndex(firstIndex) { i, view ->
+            val left = (i + 1) * avatarOffset
             view.layout(left, 0, left + avatarSize, avatarSize)
         }
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         // 初始化 alpha
-        for ((tmp, i) in (firstIndex until firstIndex + childCount).withIndex()) {
-            getChildAt(i % childCount).alpha = if (tmp < showCount) 1f else 0f
+        forChildFromIndex(firstIndex) { i, view -> view.alpha = if (i < showCount) 1f else 0f }
+    }
+
+    /**
+     * 从 first 开始，遍历列表
+     */
+    private fun forChildFromIndex(first: Int, callback: (i: Int, view: View) -> Unit) {
+        for ((i, item) in (first until first + childCount).withIndex()) {
+            callback(i, getChildAt(item % childCount))
         }
     }
 
+    /**
+     * 根据 index，返回他在队列中的位置
+     */
+    private fun getCurrentIndex(index: Int, size: Int = childCount) = (index - firstIndex).let { if (it < 0) it + size else it }
+
     fun setData(list: List<String>) {
-        avatarCount = min(list.size, childCount)
         showCount = min(showCount, list.size)
-        if (list.size < childCount) {
-            for (i in childCount - 1 downTo list.size) {
-                removeViewAt(i)
+        removeAllViews()
+        list.forEachIndexed { index, item ->
+            val i = getCurrentIndex(index, list.size)
+            newAvatarImageView(item).apply {
+                z = i.toFloat()
+                alpha = if (i < showCount) 1f else 0f
+                addView(this)
             }
         }
-        for (i in 0 until avatarCount) {
-            val view = getChildAt(i) as ImageView
-            Glide.with(context)
-                .load(list[i])
-                .transform(CircleCrop())
-                .into(view)
-        }
+        stopAnim()
+        startAnim()
+    }
+
+    private fun newAvatarImageView(url: String) = AvatarImageView(context).apply {
+        Glide.with(context)
+            .load(url)
+            .transform(CircleCrop())
+            .into(this)
     }
 
     /**
@@ -89,21 +104,21 @@ class ImageAnimView @JvmOverloads constructor(
      */
     fun nextFrame() {
         val first = firstIndex
-        val showIndex = (first + showCount) % childCount
+        val showIndex = (first + showCount) % childCount // 需要显示的index
         forEachIndexed { i, view ->
             // z轴位置
             view.animate()
                 .translationXBy(-avatarOffset.toFloat())
                 .alpha(
                     when (i) {
-                        first -> 0f
-                        showIndex -> 1f
+                        first -> 0f // 第一个消失
+                        showIndex -> 1f // 最后一个显示
                         else -> view.alpha
                     }
                 )
                 .withEndAction {
                     if (i == first) view.x = lastChildLeft
-                    ViewCompat.setZ(view, (i - firstIndex).let { if (it < 0) it + childCount else it }.toFloat())
+                    ViewCompat.setZ(view, getCurrentIndex(i).toFloat()) // 保持队列z值:0,1,2,3,4
                 }
         }
         firstIndex = if (first == childCount - 1) 0 else first + 1
